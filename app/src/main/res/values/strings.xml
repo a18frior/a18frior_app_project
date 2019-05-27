@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">a18frior_app_project</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Destinations</string>
+    <string name="action_About">About Destinations</string>
+    <string name="action_Destinations">Get destinations in Europe</string>
+    <string name="action_Destinations2">Get destinations in Asia</string>
+    <string name="action_Sort">Sort by name</string>
 </resources>

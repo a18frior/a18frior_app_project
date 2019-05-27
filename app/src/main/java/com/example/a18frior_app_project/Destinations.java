@@ -1,36 +1,33 @@
 package com.example.a18frior_app_project;
 
-
-
 import java.util.Comparator;
 import java.util.Locale;
 import java.util.jar.Attributes;
 
-/**
- * Created by marcus on 2018-04-25.
- */
-
 public class Destinations {
-
+    //Uppbyggnad av destinationer
     public static final String COLUMN_NAME_ID = "ID";
     public static final String COLUMN_NAME_Name = "Name";
     public static final String COLUMN_NAME_Location = "Location";
     public static final String COLUMN_NAME_Citizen = "Citizen";
+    public static final String COLUMN_NAME_Image = "Image";
     public static final String COLUMN_NAME_Category = "Category";
     public static final String COLUMN_NAME_Info = "Info";
 
 
     private String Name;
     private String Location;
+    private String Image;
     private String Citizen;
     private String Category;
     private String Info;
 
 
-    public Destinations(String inName, String inLocation, String inCitizen, String inCategory, String inInfo) {
+    public Destinations(String inName, String inLocation, String inCitizen, String inImage, String inCategory, String inInfo) {
         Name = inName;
         Location = inLocation;
         Citizen = inCitizen;
+        Image = inImage;
         Category = inCategory;
         Info = inInfo;
 
@@ -48,13 +45,16 @@ public class Destinations {
         return Name;
     }
 
+    //Extra information till detaljvyn
     public String info() {
         String str = Name;
-        str += " is located in ";
-        str += Location;
-        str += " With ";
+        str += " is a destination with ";
         str += Citizen;
-        str += "Citizens. ";
+        str += " citizens ";
+        str += "located in ";
+        str += Location + ",";
+        str += Category + ".";
+
 
         return str;
     }
@@ -77,6 +77,10 @@ public class Destinations {
 
     }
 
+    public void setImage(String newImage) {
+        Image = newImage;
+    }
+
     public void setCitizen(String newCitizen) {
         Citizen = newCitizen;
     }
@@ -84,6 +88,11 @@ public class Destinations {
     public String getName() {
         String getname = Name;
         return getname;
+    }
+
+    public String getImage() {
+        String getImage = Image;
+        return getImage;
     }
 
     public String getLocation() {
@@ -108,6 +117,13 @@ public class Destinations {
         return getInfo;
 
 
+    }
+}
+
+//Jämför namn för att sortera i bokstavsordning
+class DestinationsNameComparator implements Comparator<Destinations> {
+    public int compare(Destinations destinations1, Destinations destinations2) {
+        return destinations1.getName().compareToIgnoreCase(destinations2.getName());
     }
 }
 
